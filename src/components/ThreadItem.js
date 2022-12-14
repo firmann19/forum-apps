@@ -6,14 +6,6 @@ import { useNavigate } from 'react-router-dom';
 import parse from 'html-react-parser';
 import { postedAt } from '../utils';
 
-const options = {
-  replace: (domNode) => {
-    if (domNode.attribs && domNode.attribs.class === 'remove') {
-      return <> </>;
-    }
-  },
-};
-
 function ThreadItem({
   id,
   title,
@@ -62,6 +54,12 @@ function ThreadItem({
     navigate(`/threads/${id}`);
   };
 
+  const onThreadPress = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      navigate(`/threads/${id}`);
+    }
+  };
+
   return (
     <section>
       <div className="thread-item rounded">
@@ -78,7 +76,7 @@ function ThreadItem({
           <article>
             <p className="thread-item__title mb-2">{title}</p>
             <p className="thread-item__category mb-2">{`# ${category}`}</p>
-            <p className="thread-item__body mb-2">{parse(body, options)}</p>
+            <div className="thread-item__body mb-2">{parse(body)}</div>
           </article>
           <div className="icon-item mt-2 border-0">
             <p>
@@ -110,7 +108,7 @@ function ThreadItem({
               )}
             </p>
             <p>
-              <button onClick={onThreadClick}>
+              <button tabIndex={0} onClick={onThreadClick} onKeyDown={onThreadPress}>
                 <TfiComment />
               </button>
               {totalComments}

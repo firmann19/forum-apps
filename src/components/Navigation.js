@@ -7,7 +7,7 @@ function Navigation({ authUser, signOut }) {
   const { id, avatar, name } = authUser;
 
   return (
-    <section className="navigation">
+    <div className="navigation">
       <Navbar bg="light border" expand="lg">
         <Container>
           <Navbar.Brand href="/">
@@ -48,7 +48,7 @@ function Navigation({ authUser, signOut }) {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    </section>
+    </div>
   );
 }
 
