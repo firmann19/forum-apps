@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import { Stack } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { asyncPopulateUsersAndThreads } from '../states/shared/action';
 import ThreadCategoryList from '../components/ThreadCategoryList';
@@ -74,12 +74,12 @@ function HomePage() {
             <Stack className="mb-3" direction="horizontal" gap={2}>
               <h4 className="intro">Forum Discussion</h4>
               <div className="bg-light ms-auto">
-                <Button
-                  className="w-full bg-primary rounded text-white p-2 outline-none hover:bg-primaryHover"
-                  href="/create-new-thread"
+                <Link
+                  className=" bg-primary rounded text-decoration-none text-white p-2 outline-none"
+                  to="/create-new-thread"
                 >
                   Add Thread
-                </Button>
+                </Link>
               </div>
             </Stack>
 
