@@ -31,9 +31,6 @@ function ThreadItem({
     if (!isThreadLiked && !isThreadLiked) {
       like(id);
     } else if (isThreadLiked) {
-      neutralDislike(id);
-      like(id);
-    } else if (isThreadLiked) {
       neutralLike(id);
     }
   };
@@ -41,9 +38,6 @@ function ThreadItem({
   const onDislikeClick = (event) => {
     event.stopPropagation();
     if (!isThreadLiked && !isThreadLiked) {
-      dislike(id);
-    } else if (isThreadLiked) {
-      neutralLike(id);
       dislike(id);
     } else if (isThreadDisliked) {
       neutralLike(id);

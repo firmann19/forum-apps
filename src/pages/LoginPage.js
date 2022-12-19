@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import LoginImage from '../assets/login-image.jpg';
 import Logo from '../assets/forumApp.png';
 import LoginInput from '../components/LoginInput';
 import { asyncSetAuthUser } from '../states/authUser/action';
+import { asyncPopulateUsersAndThreads } from '../states/shared/action';
 
 function LoginPage() {
   const dispatch = useDispatch(); // @TODO: get dispatch function from store
+
+  useEffect(() => {
+    // @TODO: dispatch async action to populate threads and users data
+    dispatch(asyncPopulateUsersAndThreads());
+  }, [dispatch]);
 
   const onLogin = ({ email, password }) => {
     dispatch(asyncSetAuthUser({ email, password })); // @TODO: dispatch async action to login
