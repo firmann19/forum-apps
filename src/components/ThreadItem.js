@@ -40,7 +40,7 @@ function ThreadItem({
     if (!isThreadLiked && !isThreadLiked) {
       dislike(id);
     } else if (isThreadDisliked) {
-      neutralLike(id);
+      neutralDislike(id);
     }
   };
 
