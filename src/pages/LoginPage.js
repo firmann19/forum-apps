@@ -43,7 +43,7 @@ function LoginPage() {
             <h4 className="myApp mt-2">
               <strong>Welcome to</strong>
               <br />
-              <strong className="text-center text-primary">QuoTalk</strong>
+              <strong className="text-center text-primary">QuoTalk App</strong>
             </h4>
           </div>
         </div>
